@@ -1,0 +1,11 @@
+.button:hover {
+
+    -fx-background-color: rgba(113, 138, 253, 0.6);
+    -fx-opacity: 0.9
+}
+
+.button:pressed {
+    -fx-background-color: rgba(239, 232, 232, 0.45);
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+}
