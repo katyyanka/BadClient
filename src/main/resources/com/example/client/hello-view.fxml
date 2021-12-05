@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="240.0" minWidth="320.0" prefHeight="240.0" prefWidth="320.0" style="-fx-background-color: #ffffFF;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.AuthController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="240.0" minWidth="320.0" prefHeight="240.0" prefWidth="320.0" style="-fx-background-color: #ffffFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.AuthController">
     <children>
         <AnchorPane layoutX="8.0" layoutY="46.0" prefHeight="187.0" prefWidth="303.0" style="-fx-background-color: ccccff; -fx-background-radius: 15px;">
             <children>
                 <Button fx:id="exit" layoutX="55.0" layoutY="121.0" mnemonicParsing="false" prefWidth="81.0" text="Закрыть" />
-                <Button fx:id="enter" layoutX="166.0" layoutY="121.0" mnemonicParsing="false" prefWidth="81.0" text="Войти" />
+                <Button fx:id="enter" defaultButton="true" layoutX="166.0" layoutY="121.0" mnemonicParsing="false" prefWidth="81.0" text="Войти" />
                 <PasswordField fx:id="passwordAuth" layoutX="3.0" layoutY="77.0" prefHeight="26.0" prefWidth="296.0" promptText="Пароль" />
                 <TextField fx:id="loginAuth" layoutX="3.0" layoutY="35.0" prefHeight="26.0" prefWidth="296.0" promptText="Логин" />
                 <Hyperlink fx:id="registration" layoutX="55.0" layoutY="154.0" text="Нет аккаунта? Зарегистрируйтесь" />

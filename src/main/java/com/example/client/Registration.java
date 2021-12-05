@@ -102,14 +102,9 @@ public class Registration implements Encoding {
         addUser.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             try{
                 socket=new Socket("127.0.0.1",8888);
-                inOStream=new ObjectInputStream(socket.getInputStream());
                 outOStream=new ObjectOutputStream(socket.getOutputStream());
-                outOStream.flush();
+                inOStream=new ObjectInputStream(socket.getInputStream());
                 br=new BufferedReader(new InputStreamReader(System.in));
-            }catch(Exception e){
-                System.out.println(e);
-            }
-            try{
                 clientMessage = "";
                 clientMessage=lastname.getText();
                 clientMessage+="|";
@@ -135,12 +130,8 @@ public class Registration implements Encoding {
                 outOStream.flush();
                 serverMessage=inOStream.readUTF();
                 showAlert(serverMessage);
-            outOStream.close();
-            outOStream.close();
-            socket.close();
-            } catch(Exception e){
-                System.out.println(e);
-            }
+            }catch(Exception exception){ showAlert("Нет соединения с сервером!");}
+
         });
     }
 

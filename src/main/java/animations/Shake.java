@@ -12,11 +12,7 @@ public class Shake {
         tt.setFromX(0f);
         tt.setByY(10f);
         tt.setCycleCount(4);
-       /* tt.setAutoReverse(true);
-        tt.setByY(-10f);
-        tt.setCycleCount(4);*/
         tt.setAutoReverse(true); //чтоб возвращалось обратно
-
     }
 
     public  void playAnim(){

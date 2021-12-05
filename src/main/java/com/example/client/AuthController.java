@@ -81,7 +81,7 @@ public class AuthController implements Encoding,    Serializable {
                 userLoginAnim.playAnim();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            showAlert("Нет соединения с сервером!");
         }
 
     }
@@ -116,7 +116,8 @@ public class AuthController implements Encoding,    Serializable {
                 }
         );
     }
-        private void openNewWindow(String window) throws IOException {
+
+    private void openNewWindow(String window) throws IOException {
             enter.getScene().getWindow().hide();
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(window));
@@ -128,11 +129,11 @@ public class AuthController implements Encoding,    Serializable {
             stage.show();
         }
 
-    private void openNewWindow(String window, String information) throws IOException {
+    private void openNewWindow(String window, String information) {
+        try{
         enter.getScene().getWindow().hide();
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(window));
-        System.out.println(information);
         AdminController adminController =
                 new AdminController(information);
         loader.setController(adminController);
@@ -142,6 +143,10 @@ public class AuthController implements Encoding,    Serializable {
         stage.setTitle("Шуточки-Маршруточки");
         stage.getIcons().add(new Image("/iconPNG.png"));
         stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void showAlert(String s) {
