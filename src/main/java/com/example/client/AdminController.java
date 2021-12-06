@@ -154,10 +154,10 @@ public class AdminController implements Encoding {
     PieChart pieChart;
     @FXML
     AnchorPane anchorPane;
-    /*@FXML
+    @FXML
     Button countMargin;
     @FXML
-    ChoiceBox<Integer> idMargin;*/
+    ChoiceBox<Integer> idMargin;
 
     private class Order {
         IntegerProperty id;
@@ -391,9 +391,7 @@ public class AdminController implements Encoding {
             initializeCarFields(inOStream.readUTF());
             creatingOrderTable(inOStream.readUTF());
             initializeOrderFields(inOStream.readUTF());
-            System.out.println(1);
             createPieChart(inOStream.readUTF(),inOStream.readUTF(),inOStream.readUTF());
-            System.out.println(2);
 
         } catch (Exception e) {
             //showAlert("Нет соединения с сервером!");
@@ -448,13 +446,13 @@ public class AdminController implements Encoding {
         deleteOrder.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             deleteOrder();
         });
-      /*  countMargin.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+        countMargin.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             countMargin();
-        });*/
+        });
     }
 
     private void countMargin() {
-    /*    try {
+        try {
             outOStream.writeUTF("Count Margin");
             outOStream.flush();
             outOStream.writeUTF(idMargin.getValue().toString());
@@ -462,7 +460,7 @@ public class AdminController implements Encoding {
             showAlert(inOStream.readUTF());
         } catch (Exception e) {
             showAlert("Нет соединения с сервером!");
-        }*/
+        }
     }
 
     private void deleteOrder(){
@@ -720,14 +718,14 @@ public class AdminController implements Encoding {
 
         idOrderDelete.getItems().clear();
         idOrderDelete.setItems(ids);
-//        idMargin.getItems().clear();
-//        idMargin.setItems(ids);
+        idMargin.getItems().clear();
+        idMargin.setItems(ids);
         clientOrder.getItems().clear();
         clientOrder.setItems(ids);
         if (numbers.length > 0) {
             clientOrder.setValue(numbers[0]);
             idOrderDelete.setValue(numbers[0]);
-//            idMargin.setValue(numbers[0]);
+            idMargin.setValue(numbers[0]);
         }
     }
 
@@ -985,7 +983,7 @@ ObservableList<PieChart.Data> slices =FXCollections.observableArrayList(
 
     private void showAlert(String s) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Ошибка");
+        alert.setTitle("Внимание!");
         alert.setHeaderText(null);
         alert.setContentText(s);
         alert.showAndWait();

@@ -71,7 +71,7 @@ public class AuthController implements Encoding,    Serializable {
                 openNewWindow("admin.fxml", loginAuth.getText());
             }
             else if (serverMessage.equals("Добро пожаловать, Пользователь!")){
-                openNewWindow("user.fxml");
+                openUserWindow("user.fxml", loginAuth.getText());
             } else {
                 Shake userLoginAnim = new Shake(loginAuth);
 
@@ -143,6 +143,26 @@ public class AuthController implements Encoding,    Serializable {
         stage.setTitle("Шуточки-Маршруточки");
         stage.getIcons().add(new Image("/iconPNG.png"));
         stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void openUserWindow(String window, String information) {
+        try{
+            enter.getScene().getWindow().hide();
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(window));
+            UserController userController =
+                    new UserController(information);
+            loader.setController(userController);
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Шуточки-Маршруточки");
+            stage.getIcons().add(new Image("/iconPNG.png"));
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
